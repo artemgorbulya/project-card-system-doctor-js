@@ -1,1 +1,6 @@
-# project-card-system-doctor-js
+### js-advanced-step
+
+- Bootstrap
+- JavaScript
+
+![architecture scheme](./assets/ArchitectureScheme.png)

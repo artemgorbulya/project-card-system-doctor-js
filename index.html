@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+
+  <!-- модальное окно входа в систему логина -->
+  <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+  <!-- end модальное окно входа в систему логина -->
+
+
+  <!-- модальное окно создания карточки -->
+  <!-- <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Создание карточки</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+
+            <div class="form-group">
+              <label class="mr-sm-2" for="selectDoctor">Врач</label>
+              <select class="custom-select mr-sm-2" id="selectDoctor">
+                <option selected>Кардиолог</option>
+                <option value="1">Стоматолог</option>
+                <option value="2">Терапевт</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="targetVisit">Цель визита</label>
+              <input type="text" class="form-control" id="targetVisit" required>
+            </div>
+
+            <div class="form-group">
+              <label for="shorTextVisit">Краткое описание визита</label>
+              <input type="text" class="form-control" id="shorTextVisit" required>
+            </div>
+
+            <div class="form-group">
+              <label class="mr-sm-2">
+                <span class="label-title">Срочность</span>
+                <select class="custom-select mr-sm-2">
+                  <option selected>Обычная</option>
+                  <option value="1">Приоритетная</option>
+                  <option value="2">Неотложная</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="arterialPressure">Обычное давление</label>
+              <input type="number" class="form-control id=" arterialPressure" required>
+            </div>
+
+            <div class="form-group">
+              <label for="indexMass">Индекс массы тела</label>
+              <input type="number" class="form-control" id="indexMass" required>
+            </div>
+
+            <div class="form-group">
+              <label for="pastIllnesses">Перенесенные заболевания ССС</label>
+              <input type="text" class="form-control" id="pastIllnesses" required>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Возраст</label>
+              <input type="number" class="form-control" id="age" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dateVisit">Дата последнего посещения</label>
+              <input type="date" class="form-control" id="dateVisit" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fullName">ФИО</label>
+              <input type="text" class="form-control" id="fullName" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Создать</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- end модальное окно создания карточки -->
+
+
+  <!-- навигационный бар -->
+  <nav class="navbar navbar-light bg-secondary">
+    <div class="container">
+      <a class="navbar-brand text-light" href="#">
+        <img src="./img/Red_heart.svg" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        SaveLifeSystem
+      </a>
+      <div>
+        <button type="button" class="btn btn-success" id="createVisitBtn" data-toggle="modal"
+          data-target="#mainModal">Создать визит</button>
+        <button type="button" class="btn btn-success" id="loginBtn" data-toggle="modal"
+          data-target="#mainModal">Вход</button>
+        <!-- <button type="button" class="btn btn-success" id="createVisitBtn">Создать визит</button>
+        <button type="button" class="btn btn-success" id="loginBtn">Вход</button> -->
+      </div>
+  </nav>
+  </div>
+  <!-- end навигационный бар -->
+
+  <!-- панель сортировки и поиска -->
+  <div class="container bg-light pl-3 pr-3 pb-3 pt-4 filter-container">
+    <!-- <form>
+      <div class="form-row d-flex justify-content-center">
+        <div class="col-3">
+          <label class="mr-sm-2" for="searchTitle">поиск по заголовку/визиту</label>
+          <input type="text" class="form-control" placeholder="Имя" id="searchTitle">
+        </div>
+        <div class="col-3">
+          <label class="mr-sm-2" for="searchStatus">поиск по статусу</label>
+          <select class="custom-select mr-sm-2" id="searchStatus">
+            <option selected>Open</option>
+            <option value="1">Done</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="mr-sm-2" for="searchTime">срочность визита</label>
+          <select class="custom-select mr-sm-2" id="searchTime">
+            <option selected>Неотложная</option>
+            <option value="1">Приоритетная</option>
+            <option value="2">Обычная</option>
+          </select>
+        </div>
+      </div>
+      <div class="row pt-4 d-flex justify-content-center">
+        <div class="col-9 d-flex justify-content-center">
+          <button type="button" class="btn btn-success align-bottom">Поиск</button>
+        </div>
+      </div>
+    </form> -->
+  </div>
+  <!-- end панель сортировки и поиска -->
+
+
+  <!-- контейнер карточек -->
+  <div class="cards-wrapper container d-flex flex-wrap justify-content-center p-3 mt-3">
+
+    <!-- экземпляр карточки -->
+    <!-- <div class="card m-1" style="width: 20rem;">
+      <div class="card-body">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="card-title">ФИО: Иванов Иван Иванович</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Врач: Дантист</li>
+        <li class="list-group-item">
+          <a data-toggle="collapse" href="#collapseCard2" class="card-link">Показать больше</a>
+          <p class="card-text collapse" id="collapseCard2">цель визита / краткое описание визита / срочность (обычная,
+            приоритетная, неотложная) /
+            дата последнего посещения</p>
+        </li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="btn btn-primary">Редактировать</a>
+      </div>
+    </div> -->
+    <!-- end экземпляр карточки -->
+
+  </div>
+  <!-- end контейнер карточек -->
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <script src="js/app.js" type="module"></script>
+
+</body>
+
+</html>
